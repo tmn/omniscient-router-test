@@ -1,0 +1,61 @@
+{
+  "name": "omniscient-router-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/app.js",
+  "scripts": {
+    "build": "npm run build:css & npm run build:js",
+    "build:css": "lessc less/core.less static/bundle.css && npm run preprocess:autoprefixer; true",
+    "build:js": "browserify js/app.js -o static/bundle.js",
+    "watch": "npm run watch:css & npm run watch:js",
+    "watch:css": "nodemon -I -w less/ --ext less --exec 'npm run build:css'",
+    "watch:js": "watchify js/app.js -o static/bundle.js -v",
+    "preprocess:autoprefixer": "autoprefixer static/bundle.css",
+    "jshint": "jsxhint --reporter node_modules/jshint-stylish/stylish.js js/*; true",
+    "test": "mocha test",
+    "qa": "npm run jshint && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmn/omniscient-router-test.git"
+  },
+  "keywords": [
+    "omniscient",
+    "react",
+    "routers"
+  ],
+  "author": {
+    "name": "Tri Nguyen",
+    "email": "mail@trimn.net",
+    "url": "http://github.com/tmn"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://tmn.mit-license.org"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/tmn/omniscient-router-test/issues"
+  },
+  "homepage": "https://github.com/tmn/omniscient-router-test",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^5.1.1",
+    "babelify": "^6.1.0",
+    "browserify": "^10.2.0",
+    "immstruct": "^1.4.0",
+    "jshint": "^2.7.0",
+    "jshint-stylish": "^1.0.2",
+    "mocha": "^2.2.4",
+    "nodemon": "^1.3.7",
+    "omniscient": "^3.1.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "watchify": "^3.2.1"
+  }
+}
