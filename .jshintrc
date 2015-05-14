@@ -1,0 +1,6 @@
+{
+  "browser": true,
+  "esnext": true,
+  "laxcomma": true,
+  "node": true
+}
