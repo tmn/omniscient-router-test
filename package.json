@@ -12,7 +12,7 @@
     "watch:js": "watchify js/app.js -o static/bundle.js -v",
     "preprocess:autoprefixer": "autoprefixer static/bundle.css",
     "jshint": "jsxhint --reporter node_modules/jshint-stylish/stylish.js js/*; true",
-    "test": "mocha test",
+    "test": "mocha test; true",
     "qa": "npm run jshint && npm test"
   },
   "repository": {
