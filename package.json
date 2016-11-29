@@ -39,11 +39,6 @@
     "url": "https://github.com/tmn/omniscient-router-test/issues"
   },
   "homepage": "https://github.com/tmn/omniscient-router-test",
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "devDependencies": {
     "autoprefixer": "^5.1.1",
     "babelify": "^6.1.0",
