@@ -4,16 +4,14 @@
   "description": "",
   "main": "js/app.js",
   "scripts": {
+    "postbuild:css": "postcss --use cssnano static/bundle.css --output static/bundle.min.css",
+    "build:css": "lessc --autoprefix less/core.less static/bundle.css",
+    "build:js": "webpack -d js/app.js static/bundle.js",
+    "build:prod": "webpack -p; npm run build:css",
     "build": "npm run build:css & npm run build:js",
-    "build:css": "lessc less/core.less static/bundle.css && npm run preprocess:autoprefixer; true",
-    "build:js": "browserify js/app.js -o static/bundle.js",
-    "watch": "npm run watch:css & npm run watch:js",
-    "watch:css": "nodemon -I -w less/ --ext less --exec 'npm run build:css'",
-    "watch:js": "watchify js/app.js -o static/bundle.js -v",
-    "preprocess:autoprefixer": "autoprefixer static/bundle.css",
-    "jshint": "jsxhint --reporter node_modules/jshint-stylish/stylish.js js/*; true",
-    "test": "mocha test; true",
-    "qa": "npm run jshint && npm test"
+    "watch:css": "nodemon --quiet --watch less/ --ext less --exec npm run build:css",
+    "watch:js": "npm run build:js -- -w",
+    "watch": "npm run watch:css & npm run watch:js"
   },
   "repository": {
     "type": "git",
